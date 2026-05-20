@@ -19,7 +19,7 @@ repositories {
     maven("https://oss.sonatype.org/content/groups/public/") {
         name = "sonatype"
     }
-    maven("https://repo.opencollab.dev/main/")
+    maven("https://repo.opencollab.dev/main")
     maven("https://repo.codemc.io/repository/maven-releases/")
     maven("https://maven.fabricmc.net/")
     maven("https://maven.architectury.dev/")
@@ -39,18 +39,17 @@ dependencies {
     shadow("com.fasterxml.jackson.core:jackson-core:2.17.0")
     shadow("com.fasterxml.jackson.core:jackson-databind:2.17.0")
 
-    compileOnly("org.geysermc.geyser:core:2.9.1-SNAPSHOT")
-    compileOnly("org.geysermc.floodgate:core:2.2.5-SNAPSHOT")
+    compileOnly("org.geysermc.geyser:core:2.10.0-SNAPSHOT")
+
     compileOnly("org.projectlombok:lombok:1.18.34")
     annotationProcessor("org.projectlombok:lombok:1.18.34")
     testCompileOnly("org.projectlombok:lombok:1.18.34")
     testAnnotationProcessor("org.projectlombok:lombok:1.18.34")
 }
 
-
-
 subprojects {
     repositories {
+        mavenLocal()
         mavenCentral()
         gradlePluginPortal()
 
@@ -74,7 +73,7 @@ subprojects {
 
     plugins.withId("java") {
         java {
-            toolchain.languageVersion = JavaLanguageVersion.of(17)
+            toolchain.languageVersion = JavaLanguageVersion.of(21)
         }
     }
 
