@@ -1,7 +1,7 @@
 plugins {
     id("java")
     id("io.freefair.lombok") version "8.12.1"
-    id("com.gradleup.shadow") version "8.3.0"
+    id("com.gradleup.shadow") version "9.4.1"
     id("net.fabricmc.fabric-loom") version "1.16-SNAPSHOT" apply false
     id("net.neoforged.moddev") version "2.0.141" apply false
 }
@@ -91,10 +91,6 @@ subprojects {
     }
 
     tasks {
-        compileJava {
-            options.encoding = "UTF-8"
-        }
-
         processResources {
             filesMatching(listOf("plugin.yml", "bungee.yml", "extension.yml")) {
                 expand(
