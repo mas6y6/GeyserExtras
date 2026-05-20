@@ -1,0 +1,35 @@
+{
+	"schemaVersion": 1,
+	"id": "geyserextras",
+	"version": "${version}",
+	"name": "GeyserExtras",
+	"description": "GeyserExtras",
+	"authors": [
+		"letsgoaway"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/project/kOfJBurB/",
+		"sources": "https://github.com/GeyserExtras/GeyserExtras"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/geyserextras/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"dev.letsgoaway.geyserextras.GeyserExtrasFabric"
+		]
+	},
+	"mixins": [
+		"geyserextras.mixins.json",
+		{
+			"config": "geyserextras.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=${fabric_loader_version}",
+		"minecraft": "~${minecraft_version}",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
