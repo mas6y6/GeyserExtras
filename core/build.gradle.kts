@@ -1,20 +1,8 @@
 plugins {
     id("java-library")
-    id("net.neoforged.moddev")
-}
-
-neoForge {
-    val neo_form_version: String by project
-    neoFormVersion = neo_form_version
-    // Automatically enable AccessTransformers if the file exists
-    val at = file("src/main/resources/META-INF/accesstransformer.cfg")
-    if (at.exists()) {
-        accessTransformers.from(at.absolutePath)
-    }
 }
 
 dependencies {
-    val minecraft_version: String by project
     val configurate_yaml: String by project
     val jackson_version: String by project
     val packetevents_version: String by project
@@ -24,25 +12,24 @@ dependencies {
     val mixin_version: String by project
     val mixinextras_version: String by project
 
-    implementation("org.spongepowered:configurate-yaml:${configurate_yaml}")
-    shadow("org.spongepowered:configurate-yaml:${configurate_yaml}")
-    implementation("com.fasterxml.jackson.core:jackson-annotations:${jackson_version}")
-    implementation("com.fasterxml.jackson.core:jackson-core:${jackson_version}")
-    implementation("com.fasterxml.jackson.core:jackson-databind:${jackson_version}")
-    shadow("com.fasterxml.jackson.core:jackson-annotations:${jackson_version}")
-    shadow("com.fasterxml.jackson.core:jackson-core:${jackson_version}")
-    shadow("com.fasterxml.jackson.core:jackson-databind:${jackson_version}")
-    compileOnly("com.github.retrooper:packetevents-api:${packetevents_version}")
-    compileOnly("org.geysermc.geyser:core:${geyser_version}")
-    compileOnly("org.geysermc.floodgate:core:${floodgate_version}")
-    compileOnly("org.projectlombok:lombok:${lombok_version}")
-    annotationProcessor("org.projectlombok:lombok:${lombok_version}")
-    testCompileOnly("org.projectlombok:lombok:${lombok_version}")
-    testAnnotationProcessor("org.projectlombok:lombok:${lombok_version}")
+    implementation("org.spongepowered:configurate-yaml:$configurate_yaml")
 
-    compileOnly("org.spongepowered:mixin:${mixin_version}")
-    compileOnly("io.github.llamalad7:mixinextras-common:${mixinextras_version}")
-    annotationProcessor("io.github.llamalad7:mixinextras-common:${mixinextras_version}")
+    implementation("com.fasterxml.jackson.core:jackson-annotations:$jackson_version")
+    implementation("com.fasterxml.jackson.core:jackson-core:$jackson_version")
+    implementation("com.fasterxml.jackson.core:jackson-databind:$jackson_version")
+
+    compileOnly("com.github.retrooper:packetevents-api:$packetevents_version")
+    compileOnly("org.geysermc.geyser:core:$geyser_version")
+    compileOnly("org.geysermc.floodgate:core:$floodgate_version")
+
+    compileOnly("org.spongepowered:mixin:$mixin_version")
+    compileOnly("io.github.llamalad7:mixinextras-common:$mixinextras_version")
+
+    compileOnly("org.projectlombok:lombok:$lombok_version")
+    annotationProcessor("org.projectlombok:lombok:$lombok_version")
+
+    testCompileOnly("org.projectlombok:lombok:$lombok_version")
+    testAnnotationProcessor("org.projectlombok:lombok:$lombok_version")
 }
 
 configurations {
