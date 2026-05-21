@@ -9,5 +9,3 @@ pluginManagement {
 }
 
 include("core", "spigot", "bungee", "velocity", "extension")
-include("fabric")
-include("neoforge")
